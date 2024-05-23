@@ -2,7 +2,13 @@ pipeline {
     agent any
 
     stages {
-        checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'df36754e-1202-4f00-8bd4-1bb529000ffb', url: 'https://github.com/deelakar/Task-6.1C.git']])
+        stage('Checkout'){
+            steps {
+                script {
+                    checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'df36754e-1202-4f00-8bd4-1bb529000ffb', url: 'https://github.com/deelakar/Task-6.1C.git']])
+                }
+            }
+        }
 
         stage('Build') {
             steps {
