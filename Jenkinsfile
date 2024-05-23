@@ -2,17 +2,11 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout'){
-            steps {
-                script {
-                    checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'df36754e-1202-4f00-8bd4-1bb529000ffb', url: 'https://github.com/deelakar/Task-6.1C.git']])
-                }
-            }
-        }
-
         stage('Build') {
             steps {
                 script {
+                    checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'df36754e-1202-4f00-8bd4-1bb529000ffb', url: 'https://github.com/deelakar/Task-6.1C.git']])
+
                     echo 'Stage 1: Build'
                     echo 'Build the code using a build automation tool to compile and package the code.'
                     echo 'Tool: Maven'
